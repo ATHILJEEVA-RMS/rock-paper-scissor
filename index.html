@@ -4,9 +4,41 @@
         <title>RockPaperScissor</title>
         <meta charset="utf-8">
         <link rel="stylesheet" href="./style.css">
-        <script src="script.js"></script>
+        <script src="script.js" defer></script>
     </head>
     <body>
+        <div class="header">ROCK PAPER SCISSOR</div>
+        <div class="container">
+            <div class="title">Choose your weapon</div>
+            <div class="playground">
+                <div>
+                    <div class="display" id="computer">
+                        <img src="./img/question.png" alt="">
+                    </div>
+                    <div class="dText" id="comText">COMPUTER</div>
+                </div>
+                <div>
+                    <div class="display" id="user">
+                        <img src="./img/question.png" alt="">
+                    </div>
+                    <div class="dText" id="userText">USER</div>
+                </div>
+                
+            </div>
+            <div class="game">
+                <button class="button" id="rock">
+                    <img class="img" src="./img/fist.png" alt="rock">
+                </button>
+                <button class="button" id="paper">
+                    <img class="img" src="./img/hand-paper.png" alt="paper">
+                </button>
+                <button class="button" id="scissor">
+                    <img class="img" src="./img/scissors.png" alt="scissor">
+                </button>
+
+            </div>
+            <div class="result"></div>
+        </div>
     </body>
 
 </html>

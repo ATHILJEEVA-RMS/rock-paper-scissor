@@ -33,19 +33,63 @@ function playRound(userChoice,computerChoice){
         console.log("You Lose..!");
         computerScore++
     }
+
 }
-function playGame(){ 
+function playGame(userChoice){ 
+  
+    let userSelection=userChoice;
+    let computerSelection=getComputerChoice();
+    playRound(userSelection,computerSelection);
+    checkResult();
+    comText.textContent=`COMPUTER:`+computerScore;
+    userText.textContent=`USER:`+humanScore;
+
     
-    for(i=0;i<5;i++){
-        let userSelection=getUserChoice();
-        let computerSelection=getComputerChoice();
-        playRound(userSelection,computerSelection);
+}
+function checkResult(){
+    if (humanScore===5 && computerScore<5){
+        result.textContent="YOU WON!";
+        humanScore=0;
+        computerScore=0;
     }
-    console.log(`Score :
-    user:`,humanScore,`
-    computer:`,computerScore);
-
-    
+    else if(computerScore===5 && humanScore<5){
+        result.textContent="YOU LOSE!";
+        humanScore=0;
+        computerScore=0;
+    }
+    else if(computerScore===5 && humanScore===5){
+        result.textContent="ITS TIE !";
+        humanScore=0;
+        computerScore=0;
+    }
 }
+//UI
 
-playGame();
+const middle=document.createElement("div");
+const rock=document.querySelector("#rock");
+const paper=document.querySelector("#paper");
+const scissor=document.querySelector("#scissor");
+const result=document.querySelector(".result");
+const userText=document.querySelector("#userText");
+const comText=document.querySelector("#comText");
+const comImg=document.querySelector("#comImg");
+const userImg=document.querySelector("#userImg");
+
+
+
+
+
+rock.addEventListener("click",()=>{
+    playGame("rock");
+})
+paper.addEventListener("click",()=>{
+    playGame("paper")
+})
+scissor.addEventListener("click",()=>{
+    playGame("scissor")
+})
+
+
+
+
+
