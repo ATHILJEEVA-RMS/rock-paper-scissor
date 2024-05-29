@@ -7,19 +7,20 @@
         <script src="script.js" defer></script>
     </head>
     <body>
-        <div class="header">ROCK PAPER SCISSOR</div>
+        <div class="header">Rock Paper Scissor</div>
         <div class="container">
-            <div class="title">Choose your weapon</div>
+            <div class="title">Choose your weapon...!</div>
             <div class="playground">
-                <div>
+                <div  >
                     <div class="display" id="computer">
-                        <img src="./img/question.png" alt="">
+                        <img id="comImg" src="./img/question.png" alt="">
                     </div>
                     <div class="dText" id="comText">COMPUTER</div>
                 </div>
-                <div>
+                <div class="x" id="x">X</div>
+                <div  >
                     <div class="display" id="user">
-                        <img src="./img/question.png" alt="">
+                        <img id="userImg" src="./img/question.png" alt="">
                     </div>
                     <div class="dText" id="userText">USER</div>
                 </div>
@@ -37,8 +38,12 @@
                 </button>
 
             </div>
-            <div class="result"></div>
+            <div class="menu">
+                <div class="menu-content">
+                    <div class="result">dello</div>
+                <button id="play-again">play Again</button>
+            </div>
+                
         </div>
-    </body>
-
+        
 </html>

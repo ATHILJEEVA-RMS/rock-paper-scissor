@@ -17,26 +17,57 @@ function getUserChoice(){
 function playRound(userChoice,computerChoice){
     let u=userChoice.toLowerCase();
     let c=computerChoice.toLowerCase();
+    let utemp=humanScore;
+    let ctemp=computerScore;
+    display(u,c);
     if(u==="rock"&&c==="scissor"){
-        console.log("You Win! Rock beats Scissor");
         humanScore++;
     }
     else if(u==="scissor"&&c==="paper"){
-        console.log("You Win! Scissor beats Paper");
         humanScore++;
     }
     else if(u==="paper"&&c==="rock"){
-        console.log("You Win! Paper beats Rock");
         humanScore++;
     }
-    else{
-        console.log("You Lose..!");
-        computerScore++
+    else if(c==="rock"&&u==="scissor"){
+        computerScore++;
     }
+    else if(c==="scissor"&&u==="paper"){
+        computerScore++;
+    }
+    else if(c==="paper"&&u==="rock"){
+        computerScore++;
+    }
+    else{
+        x.textContent="TIE!"
+      
+        
+    }
+    
 
 }
+function display(user,com){
+    if(user==="rock"){
+        userImg.src="./img/fist.png";
+    }
+    else if(user==="paper"){
+        userImg.src="./img/hand-paper.png";
+    }
+    else if(user==="scissor"){
+        userImg.src="./img/scissors.png";
+    }
+    if(com==="rock"){
+        comImg.src="./img/fist.png";
+    }
+    else if(com==="paper"){
+        comImg.src="./img/hand-paper.png";
+    }
+    else if(com==="scissor"){
+        comImg.src="./img/scissors.png";
+    }
+}
 function playGame(userChoice){ 
-  
+    x.textContent="X"
     let userSelection=userChoice;
     let computerSelection=getComputerChoice();
     playRound(userSelection,computerSelection);
@@ -46,21 +77,25 @@ function playGame(userChoice){
 
     
 }
+function initialize(){
+    humanScore=0;
+    computerScore=0;
+    comText.textContent=`COMPUTER:`+computerScore;
+    userText.textContent=`USER:`+humanScore;
+
+}
 function checkResult(){
     if (humanScore===5 && computerScore<5){
         result.textContent="YOU WON!";
-        humanScore=0;
-        computerScore=0;
+        menu.classList.add("show");
     }
     else if(computerScore===5 && humanScore<5){
         result.textContent="YOU LOSE!";
-        humanScore=0;
-        computerScore=0;
+        menu.classList.add("show");
     }
     else if(computerScore===5 && humanScore===5){
         result.textContent="ITS TIE !";
-        humanScore=0;
-        computerScore=0;
+        menu.classList.add("show");
     }
 }
 //UI
@@ -74,10 +109,19 @@ const userText=document.querySelector("#userText");
 const comText=document.querySelector("#comText");
 const comImg=document.querySelector("#comImg");
 const userImg=document.querySelector("#userImg");
+const userDisplay=document.querySelector("#user");
+const comDisplay=document.querySelector("#computer");
+const playAgain=document.querySelector("#play-again");
+const menu=document.querySelector(".menu");
+const x=document.querySelector("#x")
 
 
 
 
+playAgain.addEventListener("click",()=>{
+    menu.classList.remove("show");
+    initialize();
+})
 
 rock.addEventListener("click",()=>{
     playGame("rock");
